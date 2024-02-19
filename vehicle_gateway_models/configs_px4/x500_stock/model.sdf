@@ -6,5 +6,23 @@
       <uri>model://x500</uri>
     </include>
 
+    <include merge="true">
+      <uri>model://OakD-Lite</uri>
+    </include>
+
+    <joint name="OakD-Lite_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>OakD-Lite_link</child>
+    </joint>
+
+    <include merge="true">
+      <uri>model://Realsense-D435</uri>
+    </include>
+
+    <joint name="Realsense-D435_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>Realsense-D435_link</child>
+    </joint>
+
   </model>
 </sdf>
