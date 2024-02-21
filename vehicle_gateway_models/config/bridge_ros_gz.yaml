@@ -1,0 +1,62 @@
+# Set bridge for Clock topic
+
+- topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+
+# Set bridge for Realsense Topics
+
+- topic_name: "realsense/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+
+- topic_name: "realsense/image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+
+- topic_name: "realsense/depth_image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+
+- topic_name: "realsense/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+
+
+# Set bridge for Oakd Topics
+
+- ros_topic_name: "oakd/camera_info"
+  gz_topic_name: "camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+
+- ros_topic_name: "oakd/image"
+  gz_topic_name: "oakd_image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+
+- ros_topic_name: "oakd/depth_image"
+  gz_topic_name: "oakd_depth"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+
+- ros_topic_name: "oakd/points"
+  gz_topic_name: "oakd_depth/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+
+# Bridge IMU topic
+
+- ros_topic_name: "sensor/imu_raw"
+  gz_topic_name: "world/empty_px4_world/model/x500_stock_0/link/base_link/sensor/imu_sensor/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+
+# Bridge MotorSpeed Topic
+
+# - ros_topic_name: "x500/motor_speed"
+#   gz_topic_name: "x500_stock_0/command/motor_speed"
+#   ros_type_name: "actuator_msgs/msg/Actuators"
+#   gz_type_name: "gz.msgs.Actuators"
+
+
