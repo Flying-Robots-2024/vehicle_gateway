@@ -3,7 +3,7 @@
   <model name='x500_stock'>
 
     <include merge="true">
-      <uri>model://x500</uri>
+      <uri>model://home/vehicle_gateway/install/share/px4_sim/models/x500/model.sdf</uri>
     </include>
 
     <include merge="true">
