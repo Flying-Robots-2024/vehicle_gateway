@@ -1,27 +1,30 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
   <model name='arena_spawn'>
+    <static>1</static>
     <link name='link_0'>
+      <pose>-3.0 -3.8 0.11 0 0 0</pose>
       <inertial>
+      <pose>0 0 0 0 0 0</pose>
+
         <mass>15</mass>
         <inertia>
-          <ixx>1</ixx>
-          <ixy>1</ixy>
-          <ixz>1</ixz>
-          <iyy>1</iyy>
-          <iyz>1</iyz>
-          <izz>1</izz>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
         </inertia>
       </inertial>
       <self_collide>1</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-      <pose frame=''>0 0 0 0 -0 0</pose>
       <visual name='visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://arena_spawn/meshes/Arena.obj</uri>
+            <uri>model://home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/arena_spawn/meshes/Arena.obj</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -31,10 +34,10 @@
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://arena_spawn/meshes/Arena.obj</uri>
+            <uri>model://home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/arena_spawn/meshes/Arena.obj</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -86,7 +89,10 @@
       </collision>
     </link>
     <link name='link_4'>
+      <pose>-3.0 -3.8 0.11 0 0 0</pose>
       <inertial>
+      <pose>0 0 0 0 0 0</pose>
+
         <mass>1</mass>
         <inertia>
           <ixx>0.166667</ixx>
@@ -100,12 +106,11 @@
       <self_collide>1</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-      <pose frame=''>0 0 0 0 -0 0</pose>
       <visual name='visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://arena_spawn/meshes/high_base_left.obj</uri>
+            <uri>model://home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/arena_spawn/meshes/high_base_left.obj</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -115,10 +120,10 @@
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://arena_spawn/meshes/high_base_left.obj</uri>
+            <uri>model://home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/arena_spawn/meshes/high_base_left.obj</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -170,7 +175,9 @@
       </collision>
     </link>
     <link name='link_5'>
+      <pose>-3.0 -3.8 0.11 0 0 0</pose>
       <inertial>
+      <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
         <inertia>
           <ixx>0.166667</ixx>
@@ -184,12 +191,11 @@
       <self_collide>1</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-      <pose frame=''>0 0 0 0 -0 0</pose>
       <visual name='visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://arena_spawn/meshes/high_base_right.obj</uri>
+            <uri>model://home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/arena_spawn/meshes/high_base_right.obj</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -199,10 +205,10 @@
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://arena_spawn/meshes/high_base_right.obj</uri>
+            <uri>model://home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/arena_spawn/meshes/high_base_right.obj</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -253,8 +259,77 @@
         </surface>
       </collision>
     </link>
-    <static>1</static>
-    <pose frame=''>0 0 0.0005 0 -0 0</pose>
-  </model>
-  <static>1</static>
+
+
+      <link name='link_1_1'>
+      <pose>1.9799646544073715 1.7200378560719956 0.15450701799208361 -1.679313178871025e-09 -1.6033867302421283e-09 -2.8021040695938825e-05</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/land_base/meshes/land_base_1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/land_base/meshes/land_base_1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+
+      <link name='link_1_2'>
+      <pose>-0.68475347400873476 -1.9136077451136353 0.15198696239799503 3.6915084775001155e-09 8.5719914300909128e-09 -2.8021005563360616e-05</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/land_base/meshes/land_base_1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/land_base/meshes/land_base_1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+
+
+      <link name='link_1_3'>
+      <pose>-1.4298343131256812 2.561037340000281 0.15171798343054224 -3.3132003413010078e-09 1.5293870335643684e-09 -2.8021002123818114e-05</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/land_base/meshes/land_base_1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/vehicle_gateway/install/share/vehicle_gateway_worlds/models/land_base/meshes/land_base_1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
 </sdf>
