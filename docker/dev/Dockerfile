@@ -45,6 +45,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pip3 install vcstool pyros-genmsg
 
+RUN echo ""
+
 RUN mkdir -p /home/vehicle_gateway/src && cd /home/vehicle_gateway && git clone https://github.com/PequiM-FlyingRobots/vehicle_gateway.git src/vehicle_gateway --depth 1 && \
     vcs import src < src/vehicle_gateway/dependencies.repos
 
@@ -55,7 +57,7 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
     && apt-get clean
 
 RUN cd /home/vehicle_gateway && \
-    rosdep install --from-paths ./ -i -y --rosdistro humble --ignore-src --skip-keys="gz-transport12 gz-common5 gz-math7 gz-msgs9 gz-gui7 gz-cmake3 gz-sim7 zenohc gz-transport7 gz-plugin2"
+    rosdep update && rosdep install --from-paths ./ -i -y --rosdistro humble --ignore-src --skip-keys="gz-transport12 gz-common5 gz-math7 gz-msgs9 gz-gui7 gz-cmake3 gz-sim7 zenohc gz-transport7 gz-plugin2"
 
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
