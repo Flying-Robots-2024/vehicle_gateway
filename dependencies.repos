@@ -15,6 +15,10 @@ repositories:
     type: git
     url: https://github.com/PX4/px4_msgs
     version: "release/1.14"
+  px4_ros_com: 
+    type: git
+    url: https://github.com/PX4/px4_ros_com.git
+    version: release/v1.14
   msp:
     type: git
     url: https://github.com/christianrauch/msp
