@@ -3,7 +3,7 @@
   Demo of models being downloaded from http://app.gazebosim.org/
 -->
 <sdf version="1.6">
-  <world name="empty_px4_world">
+  <world name="arena">
     <plugin
       filename="gz-sim-physics-system"
       name="gz::sim::systems::Physics">
