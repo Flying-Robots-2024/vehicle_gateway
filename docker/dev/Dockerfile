@@ -25,6 +25,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     gnupg2 \
     qtbase5-dev \
     cmake  \
+    ros-humble-rqt-* \
+    ros-humble-rqt-common-plugins \
+    ros-humble-teleop-* \
     && rm -rf /var/lib/apt/lists/*
 
 
@@ -43,7 +46,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-ros-base=0.10.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install vcstool pyros-genmsg
+RUN pip3 install vcstool pyros-genmsg mavsdk aioconsole pygame
 
 RUN echo ""
 
