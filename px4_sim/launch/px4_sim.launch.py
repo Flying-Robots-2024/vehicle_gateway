@@ -53,6 +53,8 @@ def generate_launch_description():
         default_value='',
         description='Frame name included in the SDF world file')
 
+    config_file_path = '/home/vehicle_gateway/src/vehicle_gateway/vehicle_gateway_models/config/bridge_ros_gz.yaml'
+
     use_groundcontrol = DeclareLaunchArgument('groundcontrol', default_value='false',
                                               choices=['true', 'false'],
                                               description='Start ground control station.')
@@ -150,7 +152,7 @@ def generate_launch_description():
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+        arguments=['--ros-args', '-p', 'config_file:=' + config_file_path],
         output='screen'
     )
 
