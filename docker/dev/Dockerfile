@@ -50,6 +50,8 @@ RUN pip3 install vcstool pyros-genmsg mavsdk aioconsole pygame
 
 RUN echo ""
 
+RUN echo ""
+
 RUN mkdir -p /home/vehicle_gateway/src && cd /home/vehicle_gateway && git clone https://github.com/PequiM-FlyingRobots/vehicle_gateway.git src/vehicle_gateway --depth 1 && \
     vcs import src < src/vehicle_gateway/dependencies.repos
 
@@ -76,6 +78,9 @@ RUN echo ". $HOME/.cargo/env"
 RUN /bin/bash -c "source /opt/ros/humble/setup.bash; colcon build --merge-install --event-handlers console_direct+ --cmake-args -DBUILD_TESTING=0"
 
 RUN apt-get install -y -q ros-humble-ros2launch
+
+
+RUN echo ""
 
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
