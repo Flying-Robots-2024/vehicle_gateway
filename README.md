@@ -16,6 +16,80 @@ The goal of this project is to create a pluginlib-based C++ library that can int
 
 You can find more details about Betaflight [here](./BETAFLIGHT_README.md) or PX4 [here](./px4_sim/README.md).
 
+# Usage on Simulation Mode
+
+To use this Package in, first you will have to build the image using the [Dockerfile](./docker/dev/Dockerfile) file.
+
+```bash
+git clone https://github.com/Flying-Robots-2024/vehicle_gateway.git
+cd vehicle_gateway
+docker build -t flying_robots -f docker/dev/Dockerfile .
+```
+Once the build process is done you can start a container and use as usual. However, the simulation is quite heavy. So, it's best that you use [rocker](https://github.com/osrf/rocker). 
+
+Install rocker:
+
+```bash
+sudo apt-get install python3-rocker
+```
+
+Start the container using the rocker_gz.sh file. NOTE that if you are not using NVIDIA GPU, you should change the line ```--nvidia``` to ```--devices /dev/dri```.
+```bash
+source rocker_gz.sh
+```
+
+Once you're inside the container you can run the simulation with the following:
+
+```bash
+source /entrypoint.sh 
+ros2 launch px4_sim px4_sim.launch.py
+```
+
+This will start the gazebo garden simulation, and all the ros2 topics needed, such as camera topics(realsense and oakd) and fmu topics. 
+
+You can see this using simple visualization tools such as rqt or rviz. 
+
+In order To see the camera and depth camera images use:
+
+```bash
+docker exec -it flying_container bash
+source /entrypoint.sh
+ros2 run rqt_image_view rqt_image_view
+```
+
+## Controlling the drone in the arena
+
+In order to make things easier to percetion tasks, we will on the first moment use python scripts to control the drone using mavsdk. 
+
+With the simulation running, open another terminal in the container and use the python3 script:
+
+```bash
+docker exec -it flying_container bash
+
+python3 /home/vehicle_gateway/src/vehicle_gateway/vehicle_gateway_python/examples/keyboard-mavsdk-test.py
+```
+
+This will start a small black window(pygame running) where you must click and control the drone using keyboard keys.
+
+```
+Left >> LEFT
+Right >> RIGHT
+Up >> FRONT
+Down >> BACK
+
+
+w >> UP
+s >> DOWN
+
+d >> CLOCKWISE
+a >> COUNTER-CLOCKWISE
+
+r >> ARM
+l >> LAND
+
+i >> FLIGHTMODE
+
+```
 # Installation
 
 This package is developed and on Ubuntu 22.04 LTS with ROS 2 Humble, and uses Gazebo Garden for simulation. To save lots of compile time, we recommend installing ROS 2 Humble and Gazebo Garden from binary packages.
@@ -175,27 +249,6 @@ colcon test --packages-select vehicle_gateway_integration_test
 colcon test-result --verbose --all
 ```
 
-# Dockerfile
-
-## For development
-
-```bash
-cd Docker/dev
-docker build -t vehicle_gateway .
-```
-
-Install rocker
-
-```bash
-sudo apt-get install python3-rocker
-```
-
-Run the container with rocker to visualize the GUI
-
-```bash
-rocker --x11 vehicle_gateway ros2 launch px4_sim px4_sim.launch.py drone_type:='x500' world_name:=null_island model_pose:="-9.7948, -8.31, 2, 0, 0, 0"
-```
-
 ## Building on NVIDIA Jetson
 
 You can also build a subset of the vehicle gateway project for an NVIDIA Jetson ([image source](https://github.com/dusty-nv/jetson-containers)). Currently, this will build all of the PX4-related packages, as well as the multi vehicle packages; and it will not build Gazebo or Betaflight-related packages.
@@ -205,13 +258,13 @@ Note that this requires that you are using a `linux/arm64` machine or an emulato
 
 ```bash
 cd Docker/nvidia_jetson
-docker build -t vehicle_gateway_nvidia_jetson .
+docker build -t flying_robots_nvidia_jetson -f docker /nvidia_jetson/Dockerfile .
 ```
 
 If you want to get the built objects out of the container, you can use the following command to copy them to your host machine.
 
 ```bash
-id=$(docker create vehicle_gateway_nvidia_jetson)
+id=$(docker create flying_robots_nvidia_jetson)
 docker cp $id:/root/vg vg_ws
 docker rm -v $id
 ```
