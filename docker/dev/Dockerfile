@@ -48,11 +48,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN pip3 install vcstool pyros-genmsg mavsdk aioconsole pygame
 
-RUN echo ""
+COPY . /home/vehicle_gateway/src/vehicle_gateway
 
-RUN echo ""
+# RUN mkdir -p /home/vehicle_gateway/src && cd /home/vehicle_gateway && git clone https://github.com/PequiM-FlyingRobots/vehicle_gateway.git src/vehicle_gateway --depth 1 && \
+#     vcs import src < src/vehicle_gateway/dependencies.repos
 
-RUN mkdir -p /home/vehicle_gateway/src && cd /home/vehicle_gateway && git clone https://github.com/PequiM-FlyingRobots/vehicle_gateway.git src/vehicle_gateway --depth 1 && \
+RUN cd /home/vehicle_gateway && \
     vcs import src < src/vehicle_gateway/dependencies.repos
 
 RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg && \
